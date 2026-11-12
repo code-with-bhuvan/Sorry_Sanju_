@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Last Chance ❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Rainy background -->
+    <div class="rain"></div>
+    <div class="ambient-glow"></div>
+    <div id="particles"></div>
+
+    <!-- Music section -->
+    <div class="music-section">
+        <button id="musicBtn" class="music-btn">
+            ♫ Play Music
+        </button>
+
+        <div id="youtubePlayer"></div>
+    </div>
+
+    <main class="container">
+
+        <!-- Scene 1: Welcome -->
+        <section id="intro" class="scene active">
+            <div class="content">
+                <p class="small-heading">A MESSAGE FROM MY HEART</p>
+
+                <h1>For Someone<br>I Never Wanted to Hurt</h1>
+
+                <p class="subtitle">
+                    There are things my heart wants to tell you...
+                </p>
+
+                <button id="openBtn" class="main-btn">
+                    Open My Heart ❤️
+                </button>
+            </div>
+        </section>
+
+
+        <!-- Scene 2: Apology -->
+        <section id="apology" class="scene">
+            <div class="letter-card">
+                <p class="small-heading">A LETTER FROM MY HEART</p>
+
+                <h2>I'm Truly Sorry...</h2>
+
+                <div class="letter-line"></div>
+
+                <p id="typedMessage" class="letter-text"></p>
+
+                <button id="nextBtn" class="main-btn hidden">
+                    Read My Heart ❤️
+                </button>
+            </div>
+        </section>
+
+
+        <!-- Scene 3: Trust -->
+        <section id="trust" class="scene">
+            <div class="content">
+                <p class="small-heading">ONE THING I WISH FOR</p>
+
+                <h2>Can I Earn Your Trust Again?</h2>
+
+                <p class="message">
+                    I know I cannot undo what happened.
+                    I know words alone cannot repair everything.
+
+                    I don't expect you to forget the hurt
+                    or trust me immediately.
+
+                    I only hope that, if your heart allows it,
+                    I can show you through my actions that
+                    I am willing to do better.
+                </p>
+
+                <div class="heart-container">
+                    <svg class="heart" viewBox="0 0 100 90">
+                        <path
+                            class="heart-shape"
+                            d="M50 85 C10 55 0 30 18 12
+                            C32 -2 47 8 50 22
+                            C53 8 68 -2 82 12
+                            C100 30 90 55 50 85Z"
+                        />
+                        <path class="crack"
+                            d="M51 20 L43 38 L55 46 L44 60 L51 76"
+                        />
+                        <path class="healing-line"
+                            d="M51 20 L43 38 L55 46 L44 60 L51 76"
+                        />
+                    </svg>
+                </div>
+
+                <button id="trustBtn" class="main-btn">
+                    There's More I Want to Say ❤️
+                </button>
+            </div>
+        </section>
+
+
+        <!-- Scene 4: Memories -->
+        <section id="memories" class="scene">
+            <div class="gallery-card">
+                <p class="small-heading">LITTLE MOMENTS, BIG MEMORIES</p>
+
+                <h2>Our Beautiful Memories</h2>
+
+                <p class="message">
+                    Every memory has a special place in my heart.
+                    I miss the happiness we shared.
+                </p>
+
+                <label for="photoUpload" class="upload-btn">
+                    + Add Our Photos
+                </label>
+
+                <input
+                    type="file"
+                    id="photoUpload"
+                    accept="image/*"
+                    multiple
+                >
+
+                <div id="photoGrid" class="photo-grid">
+                    <p class="empty-message">
+                        Your special memories will appear here...
+                    </p>
+                </div>
+
+                <button id="finalBtn" class="main-btn">
+                    One Last Message ❤️
+                </button>
+            </div>
+        </section>
+
+
+        <!-- Scene 5: Ending -->
+        <section id="ending" class="scene">
+            <div class="content ending-content">
+                <p class="small-heading">FROM THE BOTTOM OF MY HEART</p>
+
+                <h1>I'm Sorry, My Love ❤️</h1>
+
+                <p class="message">
+                    I miss the person I was lucky enough to share
+                    those beautiful moments with.
+
+                    I cannot promise that everything will become
+                    perfect overnight, but I can promise to keep
+                    learning, growing, and showing you respect.
+
+                    I hope one day I can make you smile again.
+
+                    No pressure. No expectations.
+                    Just a sincere apology from my heart.
+                </p>
+
+                <div class="final-heart">❤️</div>
+
+                <p class="signature">
+                    With all my heart,<br>
+                    Someone who is truly sorry.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- YouTube IFrame API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <!-- Your JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

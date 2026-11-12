@@ -1,0 +1,404 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #100e13;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Rainy background */
+
+.rain {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            transparent 95%,
+            rgba(255,255,255,0.18) 100%
+        );
+
+    background-size: 2px 35px;
+    animation: rainfall 0.35s linear infinite;
+    opacity: 0.25;
+}
+
+@keyframes rainfall {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 35px;
+    }
+}
+
+.ambient-glow {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: #a43d67;
+    filter: blur(180px);
+    opacity: 0.16;
+    top: 15%;
+    left: 25%;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Floating particles */
+
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.particle {
+    position: absolute;
+    bottom: -30px;
+    color: #f3a9bd;
+    animation: floatUp 7s linear forwards;
+    opacity: 0;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    85% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main layout */
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 90px 20px 40px;
+}
+
+.scene {
+    display: none;
+    width: 100%;
+    max-width: 850px;
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+.scene.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content {
+    padding: 35px 20px;
+}
+
+.small-heading {
+    color: #d9a6a9;
+    letter-spacing: 4px;
+    font-size: 11px;
+    margin-bottom: 25px;
+}
+
+h1,
+h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #f3c5cf;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: clamp(42px, 8vw, 75px);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: clamp(35px, 6vw, 55px);
+    margin-bottom: 25px;
+}
+
+.subtitle {
+    color: #c7b8bd;
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+.message {
+    color: #d3c7cc;
+    font-size: 14px;
+    line-height: 2.2;
+    white-space: pre-line;
+    max-width: 650px;
+    margin: 0 auto 30px;
+}
+
+/* Buttons */
+
+.main-btn,
+.upload-btn {
+    display: inline-block;
+    border: 1px solid #d69aab;
+    background: rgba(183, 95, 125, 0.15);
+    color: #ffe0e8;
+    padding: 14px 30px;
+    border-radius: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.35s ease;
+    margin-top: 15px;
+}
+
+.main-btn:hover,
+.upload-btn:hover {
+    background: #b75f7d;
+    color: white;
+    box-shadow: 0 0 25px rgba(218, 113, 149, 0.35);
+    transform: translateY(-3px);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Apology letter */
+
+.letter-card,
+.gallery-card {
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(239, 175, 194, 0.2);
+    border-radius: 22px;
+    padding: 45px 35px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.3);
+}
+
+.letter-line {
+    width: 70px;
+    height: 2px;
+    background: #d99eae;
+    margin: 0 auto 30px;
+}
+
+.letter-text {
+    color: #e5d8dc;
+    font-size: 14px;
+    line-height: 2.2;
+    white-space: pre-line;
+    min-height: 180px;
+    text-align: left;
+}
+
+/* Healing heart */
+
+.heart-container {
+    width: 110px;
+    margin: 20px auto;
+}
+
+.heart {
+    width: 100%;
+    overflow: visible;
+}
+
+.heart-shape {
+    fill: #b75f7d;
+    stroke: #f1a9bf;
+    stroke-width: 2;
+}
+
+.crack {
+    fill: none;
+    stroke: #26131b;
+    stroke-width: 4;
+    stroke-linecap: round;
+}
+
+.healing-line {
+    fill: none;
+    stroke: #ffe2e9;
+    stroke-width: 2;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: heal 3s ease forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes heal {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Photo gallery */
+
+#photoUpload {
+    display: none;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.6s ease;
+}
+
+.empty-message {
+    color: #9e8f95;
+    font-size: 12px;
+    grid-column: 1 / -1;
+}
+
+/* Music section */
+
+.music-section {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.music-btn {
+    background: rgba(183, 95, 125, 0.2);
+    border: 1px solid #d69aab;
+    color: #ffe0e8;
+    padding: 10px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    transition: 0.3s;
+}
+
+.music-btn:hover {
+    background: #b75f7d;
+}
+
+#youtubePlayer {
+    width: 220px;
+    height: 124px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+#youtubePlayer iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* Ending */
+
+.ending-content {
+    max-width: 700px;
+    margin: auto;
+}
+
+.final-heart {
+    font-size: 55px;
+    margin: 20px 0;
+    animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 27px;
+    color: #f0b5c5;
+    line-height: 1.7;
+    margin-top: 25px;
+}
+
+/* Mobile responsiveness */
+
+@media (max-width: 600px) {
+    .container {
+        padding: 100px 15px 35px;
+    }
+
+    .letter-card,
+    .gallery-card {
+        padding: 35px 20px;
+    }
+
+    .letter-text {
+        font-size: 13px;
+    }
+
+    .message {
+        font-size: 13px;
+    }
+
+    .music-section {
+        top: 10px;
+        right: 10px;
+    }
+
+    #youtubePlayer {
+        width: 160px;
+        height: 90px;
+    }
+
+    .music-btn {
+        padding: 9px 13px;
+    }
+}
